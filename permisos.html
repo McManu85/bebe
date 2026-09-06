@@ -164,7 +164,7 @@ footer{margin-top:3rem;padding-top:1rem;border-top:1px solid var(--rule);font-si
 
 <header class="top">
   <h1>Permisos de Aroa<br>agosto – diciembre 2026</h1>
-  <p class="sub">Emma nace el <b>27 de agosto</b>. Descanso obligatorio hasta el <b>7 de octubre</b>; el resto del año encadena vacaciones, exceso de horas, moscosos y tres semanas de permiso voluntario. Reincorporación efectiva: <b>29 de diciembre</b>.</p>
+  <p class="sub">Emma nace el <b>27 de agosto</b>. Descanso obligatorio hasta el <b>7 de octubre</b>; el resto del año encadena vacaciones, exceso de horas, moscosos y tres semanas de permiso voluntario. Reincorporación efectiva: <b>4 de enero de 2027</b>.</p>
   <div class="legend" id="legend"></div>
 </header>
 
@@ -178,7 +178,7 @@ footer{margin-top:3rem;padding-top:1rem;border-top:1px solid var(--rule);font-si
     <tr><td><span class="tag" style="background:var(--mat-ob)"></span>Nacimiento y cuidado — obligatorio</td><td class="num">6 semanas · 30 días laborables</td><td class="ok">Completo</td></tr>
     <tr><td><span class="tag" style="background:var(--mat-vol)"></span>Nacimiento y cuidado — voluntario</td><td class="num">3 semanas · 15 días laborables</td><td class="warn">7 semanas pendientes*</td></tr>
     <tr><td><span class="tag" style="background:var(--vac)"></span>Vacaciones</td><td class="num">23 días laborables</td><td class="ok">Completo</td></tr>
-    <tr><td><span class="tag" style="background:var(--mos)"></span>Moscosos</td><td class="num">3 días · 22,5 h</td><td class="ok">Completo</td></tr>
+    <tr><td><span class="tag" style="background:var(--mos)"></span>Moscosos</td><td class="num">6 días · 45 h</td><td class="ok">Completo</td></tr>
     <tr><td><span class="tag" style="background:var(--exc)"></span>Exceso de horas</td><td class="num">13 × 7,5 h + 1 × 5,5 h = 103 h</td><td class="ok">Exacto</td></tr>
   </tbody>
 </table>
@@ -248,13 +248,13 @@ const MONTHS = [
     name:"Noviembre 2026", m:11, days:30, firstDow:6,
     marks:{ vac:[...range(2,6),9,10], exc:[11,12,13,26,27], matvol:[...range(16,20),30], mos:[23,24,25] },
     check:[],
-    notes:["<b>1 nov:</b> domingo, sustituido por el 19 de marzo. El día 2 es laborable.","<b>11–13 nov:</b> 22,5 h de exceso.","<b>16–20 nov:</b> primera semana voluntaria.","<b>23–25 nov:</b> los 3 moscosos, agotados.","<b>26–27 nov:</b> 15 h de exceso.","<b>30 nov:</b> arranca la segunda semana voluntaria."]
+    notes:["<b>1 nov:</b> domingo, sustituido por el 19 de marzo. El día 2 es laborable.","<b>11–13 nov:</b> 22,5 h de exceso.","<b>16–20 nov:</b> primera semana voluntaria.","<b>23–25 nov:</b> primeros 3 moscosos.","<b>26–27 nov:</b> 15 h de exceso.","<b>30 nov:</b> arranca la segunda semana voluntaria."]
   },
   {
     name:"Diciembre 2026", m:12, days:31, firstDow:1,
-    marks:{ matvol:[...range(1,4),...range(14,18)], exc:[7,...range(9,11),...range(21,24),28], fest:[8,25] },
+    marks:{ matvol:[...range(1,4),...range(14,18)], exc:[7,...range(9,11),...range(21,24),28], mos:[29,30,31], fest:[8,25] },
     check:[],
-    notes:["<b>7 dic:</b> laborable. El 6 es domingo y no se traslada.","<b>14–18 dic:</b> tercera y última semana voluntaria del año.","<b>28 dic:</b> jornada parcial de 5,5 h que cierra las 103 h exactas.","<b>29 dic:</b> vuelta al cuadrante habitual."]
+    notes:["<b>7 dic:</b> laborable. El 6 es domingo y no se traslada.","<b>14–18 dic:</b> tercera y última semana voluntaria del año.","<b>28 dic:</b> jornada parcial de 5,5 h que cierra las 103 h exactas.","<b>29–31 dic:</b> los 3 moscosos restantes, agotados.","<b>4 ene 2027:</b> vuelta al cuadrante habitual."]
   }
 ];
 
