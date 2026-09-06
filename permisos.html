@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Permisos Aroa · ago–dic 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#FBF9F5;
+  --ink:#232019;
+  --ink-soft:#6B655A;
+  --rule:#DFD8CB;
+  --card:#FFFFFF;
+
+  --mat-ob:#7C5BA8;
+  --mat-vol:#B79AD8;
+  --vac:#3E8F6B;
+  --mos:#2F6FA8;
+  --exc:#C9922B;
+  --fest:#C0553F;
+
+  --on-color:#FFFFFF;
+  --shadow:0 1px 2px rgba(35,32,25,.06), 0 8px 24px rgba(35,32,25,.05);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#171613;
+    --ink:#EFEBE3;
+    --ink-soft:#A29A8C;
+    --rule:#332F28;
+    --card:#201E1A;
+    --mat-ob:#9B7DC7;
+    --mat-vol:#7A63A0;
+    --vac:#4FA37D;
+    --mos:#4A8CC4;
+    --exc:#D9A43F;
+    --fest:#D2705A;
+    --on-color:#131210;
+    --shadow:none;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#171613;
+  --ink:#EFEBE3;
+  --ink-soft:#A29A8C;
+  --rule:#332F28;
+  --card:#201E1A;
+  --mat-ob:#9B7DC7;
+  --mat-vol:#7A63A0;
+  --vac:#4FA37D;
+  --mos:#4A8CC4;
+  --exc:#D9A43F;
+  --fest:#D2705A;
+  --on-color:#131210;
+  --shadow:none;
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  font-size:15px;
+  line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:1060px;margin:0 auto;padding:2.5rem 1.25rem 4rem}
+
+header.top{border-bottom:2px solid var(--ink);padding-bottom:1.25rem;margin-bottom:2rem}
+h1{
+  font-family:Fraunces,Georgia,serif;
+  font-weight:600;
+  font-size:clamp(1.9rem,5vw,2.8rem);
+  line-height:1.05;
+  margin:0 0 .4rem;
+  letter-spacing:-.01em;
+}
+.sub{color:var(--ink-soft);margin:0;max-width:62ch}
+.sub b{color:var(--ink);font-weight:600}
+
+h2{
+  font-family:Fraunces,Georgia,serif;
+  font-weight:600;
+  font-size:1.35rem;
+  margin:2.75rem 0 .9rem;
+  letter-spacing:-.01em;
+}
+
+/* Leyenda */
+.legend{display:flex;flex-wrap:wrap;gap:.45rem .55rem;margin:1.5rem 0 0}
+.chip{
+  display:inline-flex;align-items:center;gap:.4rem;
+  font-size:.8rem;font-weight:500;
+  padding:.28rem .6rem;border-radius:999px;
+  border:1px solid var(--rule);background:var(--card);
+}
+.dot{width:.7rem;height:.7rem;border-radius:3px;flex:none}
+
+/* Calendarios */
+.months{display:grid;grid-template-columns:repeat(auto-fit,minmax(272px,1fr));gap:1.5rem}
+.month{background:var(--card);border:1px solid var(--rule);border-radius:10px;padding:1rem 1rem 1.1rem;box-shadow:var(--shadow)}
+.month h3{
+  font-family:Fraunces,Georgia,serif;font-size:1.05rem;font-weight:600;
+  margin:0 0 .7rem;padding-bottom:.5rem;border-bottom:1px solid var(--rule);
+}
+.grid{display:grid;grid-template-columns:repeat(7,1fr);gap:3px}
+.dow{
+  text-align:center;font-size:.68rem;font-weight:600;color:var(--ink-soft);
+  padding-bottom:.25rem;
+}
+.day{
+  aspect-ratio:1;display:flex;align-items:center;justify-content:center;
+  font-size:.82rem;font-variant-numeric:tabular-nums;border-radius:6px;
+  color:var(--ink);
+}
+.day.blank{visibility:hidden}
+.day.weekend{color:var(--ink-soft)}
+.day.mat-ob{background:var(--mat-ob);color:var(--on-color);font-weight:600}
+.day.mat-vol{background:var(--mat-vol);color:var(--on-color);font-weight:600}
+.day.vac{background:var(--vac);color:var(--on-color);font-weight:600}
+.day.mos{background:var(--mos);color:var(--on-color);font-weight:600}
+.day.exc{background:var(--exc);color:var(--on-color);font-weight:600}
+.day.fest{background:var(--fest);color:var(--on-color);font-weight:600}
+.day.check{position:relative}
+.day.check::after{
+  content:"";position:absolute;top:2px;right:2px;
+  width:5px;height:5px;border-radius:50%;background:var(--fest);
+  outline:1.5px solid var(--card);
+}
+.notes{margin:.85rem 0 0;padding:0;list-style:none;font-size:.79rem;color:var(--ink-soft)}
+.notes li{padding:.12rem 0 .12rem .85rem;position:relative}
+.notes li::before{content:"";position:absolute;left:0;top:.62em;width:4px;height:4px;border-radius:1px;background:var(--rule)}
+.notes li b{color:var(--ink);font-weight:600}
+
+/* Tabla */
+.tablewrap{overflow-x:auto;border:1px solid var(--rule);border-radius:10px;background:var(--card)}
+table{width:100%;border-collapse:collapse;font-size:.88rem;min-width:520px}
+th,td{text-align:left;padding:.65rem .85rem;border-bottom:1px solid var(--rule)}
+th{font-weight:600;font-size:.76rem;color:var(--ink-soft)}
+tbody tr:last-child td{border-bottom:none}
+td.num{font-variant-numeric:tabular-nums}
+.ok{color:var(--vac);font-weight:600}
+.warn{color:var(--fest);font-weight:600}
+.tag{display:inline-block;width:.6rem;height:.6rem;border-radius:2px;margin-right:.45rem;vertical-align:baseline}
+
+/* Avisos */
+.alerts{display:grid;gap:.75rem}
+.alert{
+  background:var(--card);border:1px solid var(--rule);border-left:3px solid var(--fest);
+  border-radius:8px;padding:.8rem 1rem;
+}
+.alert.info{border-left-color:var(--mos)}
+.alert h4{margin:0 0 .2rem;font-size:.92rem;font-weight:600}
+.alert p{margin:0;font-size:.86rem;color:var(--ink-soft)}
+footer{margin-top:3rem;padding-top:1rem;border-top:1px solid var(--rule);font-size:.78rem;color:var(--ink-soft)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="top">
+  <h1>Permisos de Aroa<br>agosto – diciembre 2026</h1>
+  <p class="sub">Emma nace el <b>27 de agosto</b>. Descanso obligatorio hasta el <b>7 de octubre</b>; el resto del año encadena vacaciones, exceso de horas, moscosos y tres semanas de permiso voluntario. Reincorporación efectiva: <b>29 de diciembre</b>.</p>
+  <div class="legend" id="legend"></div>
+</header>
+
+<div class="months" id="months"></div>
+
+<h2>Cómputo final</h2>
+<div class="tablewrap">
+<table>
+  <thead><tr><th>Concepto</th><th>Disfrutado en 2026</th><th>Estado</th></tr></thead>
+  <tbody>
+    <tr><td><span class="tag" style="background:var(--mat-ob)"></span>Nacimiento y cuidado — obligatorio</td><td class="num">6 semanas · 30 días laborables</td><td class="ok">Completo</td></tr>
+    <tr><td><span class="tag" style="background:var(--mat-vol)"></span>Nacimiento y cuidado — voluntario</td><td class="num">3 semanas · 15 días laborables</td><td class="warn">7 semanas pendientes*</td></tr>
+    <tr><td><span class="tag" style="background:var(--vac)"></span>Vacaciones</td><td class="num">23 días laborables</td><td class="ok">Completo</td></tr>
+    <tr><td><span class="tag" style="background:var(--mos)"></span>Moscosos</td><td class="num">3 días · 22,5 h</td><td class="ok">Completo</td></tr>
+    <tr><td><span class="tag" style="background:var(--exc)"></span>Exceso de horas</td><td class="num">13 × 7,5 h + 1 × 5,5 h = 103 h</td><td class="ok">Exacto</td></tr>
+  </tbody>
+</table>
+</div>
+<p class="sub" style="font-size:.8rem;margin-top:.6rem">*Sobre una base de 16 semanas. Si a la Ertzaintza le aplica ya la ampliación a 17 semanas más 2 de permiso parental retribuido, quedarían 8 pendientes más esas 2. Consumir todo antes del 27 de agosto de 2027.</p>
+
+<h2>Antes de registrar nada</h2>
+<div class="alerts">
+  <div class="alert info">
+    <h4>Festivos verificados con el calendario oficial</h4>
+    <p>Euskadi no traslada al lunes los festivos que caen en domingo: el 1 de noviembre y el 6 de diciembre se sustituyen por el 19 de marzo y el 25 de julio, ambos fuera de este tramo. El 7 de diciembre y el 2 de noviembre son laborables, así que el plan cuadra tal cual. Los únicos festivos del bloque son el 12 de octubre, el 8 y el 25 de diciembre. El local de Vitoria es el 5 de agosto (La Blanca) y el de Álava el 28 de abril.</p>
+  </div>
+  <div class="alert info">
+    <h4>Falta la lactancia acumulada</h4>
+    <p>Una hora diaria hasta los 12 meses, acumulable en jornadas completas — en torno a 4 semanas seguidas. No está en este plan y suele pedirse enganchada al final del permiso de nacimiento.</p>
+  </div>
+  <div class="alert info">
+    <h4>Preaviso de 15 días</h4>
+    <p>Cada tramo voluntario se comunica a RR. HH. con 15 días de antelación y en semanas completas. Los tres tramos planificados (16–20 nov, 30 nov–4 dic, 14–18 dic) cumplen esa condición.</p>
+  </div>
+</div>
+
+<footer>Festivos contrastados con el calendario laboral de Euskadi 2026 aprobado por el Consejo de Gobierno y con los locales decretados por la Diputación de Álava y el Ayuntamiento de Vitoria-Gasteiz.</footer>
+
+</div>
+
+<script>
+const TYPES = {
+  matob:  {label:"Nacimiento · obligatorio", cls:"mat-ob",  color:"var(--mat-ob)"},
+  matvol: {label:"Nacimiento · voluntario",  cls:"mat-vol", color:"var(--mat-vol)"},
+  vac:    {label:"Vacaciones",               cls:"vac",     color:"var(--vac)"},
+  mos:    {label:"Moscosos",                 cls:"mos",     color:"var(--mos)"},
+  exc:    {label:"Exceso de horas",          cls:"exc",     color:"var(--exc)"},
+  fest:   {label:"Festivo",                  cls:"fest",    color:"var(--fest)"}
+};
+
+const legend = document.getElementById("legend");
+Object.values(TYPES).forEach(t=>{
+  const el = document.createElement("span");
+  el.className = "chip";
+  el.innerHTML = '<span class="dot" style="background:'+t.color+'"></span>'+t.label;
+  legend.appendChild(el);
+});
+
+const range = (a,b)=>Array.from({length:b-a+1},(_,i)=>a+i);
+
+const MONTHS = [
+  {
+    name:"Agosto 2026", m:8, days:31, firstDow:5, // 0=lunes
+    marks:{ matob:[27,28,31] },
+    check:[],
+    notes:["<b>27 ago:</b> nace Emma. Arranca el descanso obligatorio.","3 días laborables consumidos este mes."]
+  },
+  {
+    name:"Septiembre 2026", m:9, days:30, firstDow:1,
+    marks:{ matob:[...range(1,4),...range(7,11),...range(14,18),...range(21,25),...range(28,30)] },
+    check:[],
+    notes:["Mes completo de descanso obligatorio: 22 días laborables."]
+  },
+  {
+    name:"Octubre 2026", m:10, days:31, firstDow:3,
+    marks:{ matob:[1,2,5,6,7], vac:[8,9,...range(13,16),...range(19,23),...range(26,30)], fest:[12] },
+    check:[],
+    notes:["<b>7 oct:</b> última jornada de las 6 semanas obligatorias.","<b>12 oct:</b> Fiesta Nacional.","Vacaciones desde el día 8: 16 días laborables."]
+  },
+  {
+    name:"Noviembre 2026", m:11, days:30, firstDow:6,
+    marks:{ vac:[...range(2,6),9,10], exc:[11,12,13,26,27], matvol:[...range(16,20),30], mos:[23,24,25] },
+    check:[],
+    notes:["<b>1 nov:</b> domingo, sustituido por el 19 de marzo. El día 2 es laborable.","<b>11–13 nov:</b> 22,5 h de exceso.","<b>16–20 nov:</b> primera semana voluntaria.","<b>23–25 nov:</b> los 3 moscosos, agotados.","<b>26–27 nov:</b> 15 h de exceso.","<b>30 nov:</b> arranca la segunda semana voluntaria."]
+  },
+  {
+    name:"Diciembre 2026", m:12, days:31, firstDow:1,
+    marks:{ matvol:[...range(1,4),...range(14,18)], exc:[7,...range(9,11),...range(21,24),28], fest:[8,25] },
+    check:[],
+    notes:["<b>7 dic:</b> laborable. El 6 es domingo y no se traslada.","<b>14–18 dic:</b> tercera y última semana voluntaria del año.","<b>28 dic:</b> jornada parcial de 5,5 h que cierra las 103 h exactas.","<b>29 dic:</b> vuelta al cuadrante habitual."]
+  }
+];
+
+const DOW = ["L","M","X","J","V","S","D"];
+const cont = document.getElementById("months");
+
+MONTHS.forEach(mo=>{
+  const lookup = {};
+  Object.entries(mo.marks).forEach(([k,arr])=>arr.forEach(d=>lookup[d]=k));
+
+  const card = document.createElement("section");
+  card.className = "month";
+
+  let html = '<h3>'+mo.name+'</h3><div class="grid">';
+  DOW.forEach(d=>html+='<div class="dow">'+d+'</div>');
+  for(let i=0;i<mo.firstDow;i++) html+='<div class="day blank"></div>';
+  for(let d=1;d<=mo.days;d++){
+    const dow = (mo.firstDow + d - 1) % 7;
+    const type = lookup[d];
+    const cls = ["day"];
+    if(type) cls.push(TYPES[type].cls);
+    else if(dow>=5) cls.push("weekend");
+    if(mo.check.includes(d)) cls.push("check");
+    html += '<div class="'+cls.join(" ")+'">'+d+'</div>';
+  }
+  html += '</div><ul class="notes">'+mo.notes.map(n=>'<li>'+n+'</li>').join("")+'</ul>';
+  card.innerHTML = html;
+  cont.appendChild(card);
+});
+</script>
+</body>
+</html>
